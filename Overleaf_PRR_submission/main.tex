@@ -463,16 +463,11 @@ The distinction occurs within the same positive-gap protocol. For
 \(\tau=9.318<\tau_f=12.5\), the instantaneous gap is
 \(\omega/\gamma_0=1.0682\) and direct integration of
 Eq.~\eqref{eq:pseudomode} gives
-\begin{equation}
-\begin{aligned}
-\frac{\dot Q_S}{\gamma_0^2}&=2.22375\times10^{-3},&
-\frac{\dot W_S}{\gamma_0^2}&=-5.67391\times10^{-2},\\
-\frac{\dot U_S}{\gamma_0^2}&=-5.45153\times10^{-2},&
-\frac{-\dot E_B}{\gamma_0^2}&=-5.20330\times10^{-4},\\
-\frac{-\dot E_I}{\gamma_0^2}&=2.74408\times10^{-3}.&&
-\end{aligned}
-\label{eq:energycounterexample}
-\end{equation}
+\(\dot Q_S/\gamma_0^2=2.22375\times10^{-3}\),
+\(\dot W_S/\gamma_0^2=-5.67391\times10^{-2}\),
+\(\dot U_S/\gamma_0^2=-5.45153\times10^{-2}\),
+\(-\dot E_B/\gamma_0^2=-5.20330\times10^{-4}\), and
+\(-\dot E_I/\gamma_0^2=2.74408\times10^{-3}\).
 The microscopic currents satisfy Eq.~\eqref{eq:strongbalance} to below
 \(10^{-15}\), while Eq.~\eqref{eq:systemenergybalance} holds independently.
 Thus released interaction energy supplies a positive \(\dot Q_S\) even though
@@ -761,10 +756,7 @@ lines mark \(\tau_-\) and \(\tau_+\).}
 
 Continuation of Eq.~\eqref{eq:exactODE} together with its variational
 equations gives
-\begin{equation}
-(\ell_{\rm sw},a_{\rm sw})=(0.936188,0.319102).
-\label{eq:switchcoordinates}
-\end{equation}
+\((\ell_{\rm sw},a_{\rm sw})=(0.936188,0.319102)\).
 We used DOP853 integration with relative and absolute tolerances
 \(2\times10^{-10}\) and \(2\times10^{-12}\), respectively, and solved the
 two residual equations to below \(10^{-10}\); halving both tolerances changes
@@ -787,11 +779,8 @@ H(x)=\Ree\left[
 \end{equation}
 Let \(x_0=2.14357\ldots\) denote the first positive zero of \(H\). The
 endpoint branch is born at \(\ell=0\) when
-\begin{equation}
-a_0(\Omega_\Delta)=\left(\frac{\Omega_\Delta}{x_0}\right)^2,
-\qquad a_0(5/4)=0.340052.
-\label{eq:lowerbirth}
-\end{equation}
+\(a_0(\Omega_\Delta)=(\Omega_\Delta/x_0)^2\); for the representative range,
+\(a_0(5/4)=0.340052\).
 
 Finally, the two endpoint roots merge at a cusp. If
 \(g(\ell,a)=\Ree q(\Omega_\Delta/a;\ell,a)\), the tip
@@ -806,10 +795,7 @@ C_t&=\left.
 \label{eq:endpointcusp}
 \end{align}
 For \(\Omega_\Delta=5/4\), the numerically continued double root is
-\begin{equation}
-(\ell_t,a_t)=(0.492257,0.396633),
-\label{eq:tipcoordinates}
-\end{equation}
+\((\ell_t,a_t)=(0.492257,0.396633)\),
 with the same residual and tolerance checks as the switch point.
 The three numerically resolved regimes are therefore: interior-tangency control for
 \(a<a_{\rm sw}\); one endpoint upper edge for
@@ -930,7 +916,7 @@ Energetically, \(\bar\gamma<0\) is exactly equivalent to
 \(\dot Q_S>0\) for every initial state with nonzero excited population and
 positive transition frequency. It is not equivalent to \(\dot U_S>0\),
 because the chirp also performs work, and it does not imply that the reservoir
-loses energy. Equation~\eqref{eq:energycounterexample} gives an explicit
+loses energy. The positive-gap example evaluated above gives an explicit
 counterexample: released interaction energy sustains \(\dot Q_S>0\) while the
 bath gains energy and the downward sweep makes \(\dot U_S<0\). Useful work
 cannot be identified with any one of these currents; switching, extraction,
