@@ -6,6 +6,8 @@ This repository contains the reproducible numerical code, generated data, figure
 
 by Francisco Ahumada, Felipe Barra, and Ariel Norambuena.
 
+Repository: <https://github.com/Ariel-Norambuena/frequency-swept-qubit>
+
 The project studies the exact single-excitation dynamics of a frequency-controlled two-level system coupled to a structured bosonic reservoir. The repository reproduces the non-Markovian revival boundary, its exceptional-point asymptotics and control-protocol dependence, the microscopic energy balance, and the extensions reported in the Supplemental Material.
 
 ## Repository structure
