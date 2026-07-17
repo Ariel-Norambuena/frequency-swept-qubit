@@ -34,10 +34,10 @@ Matem\'aticas, Universidad de Chile, 837.0415 Santiago, Chile}
 \affiliation{Departamento de F\'isica, Universidad T\'ecnica Federico Santa Mar\'ia,
 Casilla 110-V, Valpara\'iso, Chile}
 
-\date{July 15, 2026}
+\date{July 17, 2026}
 
 \begin{abstract}
-The interplay between time-dependent Hamiltonian control and dissipation is often approximated by an instantaneous Lindblad equation, neglecting reservoir memory and the dynamical phases accumulated during the drive. Here, we analytically solve a two-level system whose transition frequency is modulated in time while it is coupled to an amplitude-damping bosonic reservoir. For a Lorentzian spectral density and a linear detuning ramp, the exact one-excitation dynamics reduces to a Weber equation governing the excited-state population. We show that population revivals coincide interval by interval with a negative time-local decay rate, CP indivisibility, distinguishability backflow, and a positive heat-like contribution to the bare-system energy balance. At fixed resonance, the onset of these effects is governed by a second-order exceptional point separating monotonic relaxation from damped oscillations. A slow sweep turns this sharp threshold into a nonanalytic boundary. For smooth controls with the same local slope, the leading square-root behavior and the next fractional correction are universal and obtained analytically. Finite ramps reveal a crossover to endpoint-controlled revivals and a terminal cusp. Exact energy balances show that a positive heat-like current need not imply either an increase of the total qubit energy or energy lost by the reservoir. An instantaneous Markovian description misses the entire revival domain. These results provide an analytically controlled framework for identifying when coherent control activates reservoir memory and why standard Markovian modeling can predict qualitatively opposite behavior.
+The interplay between time-dependent Hamiltonian control and dissipation is often approximated by an instantaneous Lindblad equation, neglecting reservoir memory and the dynamical phases accumulated during the drive. Here, we analytically study a frequency-modulated two-level system coupled to an amplitude-damping bosonic reservoir. For a Lorentzian spectral density, an arbitrary detuning protocol admits an exact two-mode non-Hermitian representation. A linear ramp reduces this dynamics to a Weber equation, but the resulting critical behavior is not tied to that waveform: for analytic slow controls with the same local slope, the leading square-root displacement of the revival threshold and its next fractional correction are universal. Population revivals coincide interval by interval with a negative time-local decay rate, CP indivisibility, distinguishability backflow, and a positive heat-like contribution to the bare-system energy balance. At fixed resonance, their onset is governed by a second-order exceptional point, and the universal fractional law describes its nonautonomous unfolding under control. Finite protocols reveal a crossover to endpoint-controlled revivals and a terminal cusp. Exact energy balances further show that a positive heat-like current need not imply either an increase of the total qubit energy or energy lost by the reservoir. An instantaneous Markovian description misses the entire revival domain. These results identify a universal mechanism by which smooth frequency control activates reservoir memory and changes its thermodynamic interpretation.
 \end{abstract}
 
 \maketitle
@@ -85,34 +85,13 @@ exact although \(\omega(t)\) is time dependent, because the drive changes the
 excitation energy but neither creates nor
 annihilates excitations.
 
-We consider the initial full state \(|\Psi(0)\rangle = |e,0\rangle\), so the dynamics is confined to \(\mathcal H_1\). In the Schr\"odinger picture the most general state in 
-that sector is written as $|\Psi(t)\rangle=C_e(t)|e,0\rangle
-+\sum_k C_k(t)|g,1_k\rangle$, where \(|1_k\rangle=b_k^\dagger|0\rangle\). The Schr\"odinger equation gives the coupled coefficient equations
-\begin{align}
-\ii\dot C_e&=\omega(t)C_e+\sum_k g_kC_k,
-\nonumber\\
-\ii\dot C_k&=\omega_kC_k+g_k^*C_e,
-\qquad C_e(0)=1,\quad C_k(0)=0.
-\label{eq:Schrodingercoefficients}
-\end{align}
-Let \(\Phi(t)=\int_0^t\omega(v)\dd v\) be the dynamical phase, and remove
-the free phases through
-\begin{equation}
-C_e(t)=c(t)\ee^{-\ii\Phi(t)},
-\qquad C_k(t)=\beta_k(t)\ee^{-\ii\omega_kt}.
-\label{eq:interactionamplitudes}
-\end{equation}
-The coefficient equations then become
-\begin{align}
-\dot c(t)&=-\ii\sum_k g_k\beta_k(t)
-\ee^{-\ii[\omega_kt-\Phi(t)]},
-\nonumber\\
-\dot\beta_k(t)&=-\ii g_k^*c(t)
-\ee^{\ii[\omega_kt-\Phi(t)]}.
-\label{eq:interactioncoefficients}
-\end{align}
-Integrating the second line with \(\beta_k(0)=0\) and substituting it back
-gives the exact Volterra equation
+We take \(|\Psi(0)\rangle=|e,0\rangle\), so the evolution remains in
+\(\mathcal H_1\), where
+\(|\Psi(t)\rangle=C_e(t)|e,0\rangle+\sum_kC_k(t)|g,1_k\rangle\).
+Removing the free phases with
+\(C_e=c\exp[-\ii\int_0^t\omega(v)\dd v]\) and
+\(C_k=\beta_k\exp(-\ii\omega_kt)\), then eliminating the initially empty
+reservoir amplitudes, gives the exact Volterra equation
 \begin{align}
 \dot c(t)&=-\int_0^t\mathcal K(t,u)c(u)\dd u,
 \label{eq:discreteVolterra}\\
@@ -126,14 +105,8 @@ reduction, so Eqs.~\eqref{eq:discreteVolterra} and
 \eqref{eq:discretekernel} give the exact dynamics in the single-excitation
 manifold. The time-dependent gap makes the kernel nonstationary: in general,
 \(\mathcal K(t,u)\neq\mathcal K(t-u)\). The phase transformation does not
-change the probability \(|c(t)|^2\). Tracing out the bosonic degrees of
-freedom gives the system density matrix
-\begin{equation}
-\rho_S(t)=P(t)\lvert e\rangle\langle e\rvert
-+[1-P(t)]\lvert g\rangle\langle g\rvert,
-\qquad P(t)=|c(t)|^2.
-\label{eq:rhoS}
-\end{equation}
+change the survival probability \(P(t)=|c(t)|^2\); for the initially excited
+state, \(\rho_S=P|e\rangle\langle e|+(1-P)|g\rangle\langle g|\).
 
 \subsection{Lorentzian reservoir and pseudomode embedding}
 
@@ -153,111 +126,40 @@ detuning below. The effective full-line Lorentzian extension, its
 positive-frequency limit, the reconstruction of the discrete coefficients
 \(g_k\), and the exact
 reservoir amplitudes are detailed in the Supplemental
-Material~\cite{SupplementalMaterial}.
-Factoring
-the phase at \(\omega_b\) in Eq.~\eqref{eq:discretekernel} defines
-\begin{equation}
-\delta(t) \equiv \omega_b-\omega(t)
-\label{eq:detuningdefinition}
-\end{equation}
-and the stationary bath correlation function
+Material~\cite{SupplementalMaterial}. Factoring the phase at \(\omega_b\)
+defines the detuning \(\delta(t)=\omega_b-\omega(t)\) and the stationary bath
+correlation function
 \begin{align}
 f_L(s)&=\int_{-\infty}^{\infty}J_L(\nu)
 \ee^{-\ii(\nu-\omega_b)s}\dd\nu =\frac{\gamma_0\lambda}{2}\ee^{-\lambda s},
 \qquad s\geq0.
 \label{eq:Lorentziankernel}
 \end{align}
-The integral over the full real line defines an effective Lorentzian reservoir in
-rotating detuning coordinates; it is not literally identical to a bosonic
-Hamiltonian bounded below by \(\nu=0\). The fraction of the Lorentzian weight
-retained at positive laboratory frequencies is
-\begin{equation}
-\eta_+=\frac{\int_0^\infty J_L(\nu)\dd\nu}
-{\int_{-\infty}^\infty J_L(\nu)\dd\nu}
-=\frac12+\frac{1}{\pi}\arctan\!\left(\frac{\omega_b}{\lambda}\right).
-\label{eq:positiveweight}
-\end{equation}
-Accordingly, the exponential kernel and the one-pseudomode representation are
-exact for this effective full-line Lorentzian reservoir, while they approximate
-a positive-frequency reservoir in the controlled carrier limit
-\(\omega_b/\lambda\gg1\). We keep this carrier scale independent of the
-detuning range below.
-Thus, the exact TLS equation can be written as
+The full-line integral defines an effective Lorentzian reservoir in rotating
+detuning coordinates. Its relation to a positive-frequency bosonic reservoir,
+including the exact retained spectral weight, is quantified in the
+Supplemental Material. The exact TLS equation is
 \begin{equation}
 \dot c(t)=-\int_0^t f_L(t-u)
 \exp\!\left[-\ii\int_u^t\delta(v)\dd v\right]c(u)\dd u.
 \label{eq:atomicVolterra}
 \end{equation}
-This step displays precisely where the spectral density enters: the
-Hamiltonian symmetry first reduces the dynamics to one amplitude, and the
-choice of \(J_L\) then fixes its memory kernel. The protocol starts exactly
-at the Lorentzian center, \(\omega(0)=\omega_b\), and lowers the gap linearly
-over a range \(\Delta_f\), while maintaining a positive final gap
-\(\omega_f=\omega_b-\Delta_f>0\).
-In terms of \(\omega(t)=\omega_0+f(t)\), this initial resonance means
-\(f(0)=\omega_b-\omega_0\); it does not require \(\omega_0=\omega_b\).
-\begin{align}
-\omega(t)&=\omega_b-\alpha t,
-\qquad \delta(t)=\alpha t,
-\label{eq:linearprotocol}
-\end{align}
-where
-\begin{equation}
-\Delta_f=\omega_b-\omega_f,\qquad
-0\leq t\leq t_f=\frac{\Delta_f}{\alpha},\qquad \omega_f>0.
-\label{eq:finiteprotocol}
-\end{equation}
-The static reference problem \(a=0\) used below is therefore a qubit held
-exactly on resonance, \(\omega(t)=\omega_b\), rather than a separately chosen
-static gap. We introduce the independent dimensionless carrier and sweep
-range
-\begin{equation}
-\begin{aligned}
-\tau&=\gamma_0t,&
-\ell&=\frac{\lambda}{\gamma_0},&
-a&=\frac{\alpha}{\gamma_0^2},\\
-\Omega_b&=\frac{\omega_b}{\gamma_0},&
-\Omega_\Delta&=\frac{\Delta_f}{\gamma_0},&
-\tau_f&=\frac{\Omega_\Delta}{a}.
-\end{aligned}
-\label{eq:dimensionless}
-\end{equation}
-The physical regime used for energetic and experimental statements obeys
-\(\Omega_b>\Omega_\Delta\) and \(\Omega_b/\ell\gg1\); neither condition
-changes the reduced equation because it depends only on the detuning
-\(\delta(\tau)=a\tau\).
-The Hamiltonian also assumes that tuning the gap does not rotate the TLS
-eigenbasis or change the magnitudes and phases of \(g_k\). This is exact
-within Eq.~\eqref{eq:Hamiltonian}; experimentally it requires either a
-longitudinal frequency control or a sufficiently small fractional sweep that
-any coupling variation can be calibrated perturbatively.
-Because Eq.~\eqref{eq:Lorentziankernel} is a single exponential, its entire
-memory integral can be stored in one auxiliary amplitude, giving the exact
-pseudomode embedding~\cite{Garraway1997,Pleasance2020}. Setting
-\(g=\sqrt{\ell/2}\) and defining
-\begin{align}
-b(\tau)&=-\ii g\int_0^\tau\ee^{-\ell(\tau-u)}
-\exp\!\left[-\frac{\ii a}{2}(\tau^2-u^2)\right]c(u)\dd u.
-\label{eq:pseudomodedefinition}
-\end{align}
-Equation~\eqref{eq:atomicVolterra} gives the first equation below, while
-differentiating Eq.~\eqref{eq:pseudomodedefinition} gives the second. Thus
-the Lorentzian reservoir correlation function is exactly equivalent to damped
-pseudomode dynamics:
+This displays precisely where the spectral density enters: excitation-number
+symmetry first reduces the dynamics to one amplitude, and \(J_L\) then fixes
+its memory kernel. Introduce \(\tau=\gamma_0t\),
+\(\ell=\lambda/\gamma_0\), the dimensionless detuning
+\(\delta(\tau)=[\omega_b-\omega(t)]/\gamma_0\), and
+\(g=\sqrt{\ell/2}\). Because Eq.~\eqref{eq:Lorentziankernel} is a single
+exponential, its entire memory can be stored in one auxiliary amplitude,
+yielding the exact pseudomode embedding for an arbitrary control
+waveform~\cite{Garraway1997,Pleasance2020}:
 \begin{align}
 c'&=-\ii g b,\nonumber\\
-b'&=-(\ell+\ii a\tau)b-\ii g c,
+b'&=-[\ell+\ii\delta(\tau)]b-\ii g c,
 \label{eq:pseudomode}
 \end{align}
-where a prime denotes \(\dd/\dd\tau\). Defining the amplitude vector
-\begin{equation}
-\bm v(\tau)=
-\begin{pmatrix}
-c(\tau)\\
-b(\tau)
-\end{pmatrix},
-\end{equation}
-the pseudomode equations take the Schr\"odinger-like form
+where a prime denotes \(\dd/\dd\tau\). With
+\(\bm v=(c,b)^{\mathsf T}\), these equations take the Schr\"odinger-like form
 \begin{equation}
 \ii\frac{\dd}{\dd\tau}\bm v(\tau)
 =H_{\rm eff}(\tau)\bm v(\tau),
@@ -265,108 +167,91 @@ the pseudomode equations take the Schr\"odinger-like form
 H_{\rm eff}(\tau)=
 \begin{pmatrix}
 0 & g\\
-g & a\tau-\ii\ell
+g & \delta(\tau)-\ii\ell
 \end{pmatrix}.
 \label{eq:Heff}
 \end{equation}
 The exact non-Markovian qubit dynamics is therefore embedded into a
 two-dimensional evolution generated by an effective non-Hermitian Hamiltonian.
-Its non-Hermiticity is not introduced phenomenologically: the term
-\(-\ii\ell\) represents irreversible leakage from the pseudomode into the
-residual Markovian environment. Indeed,
+Its non-Hermiticity is derived rather than postulated: \(-\ii\ell\) describes
+leakage from the pseudomode into the residual Markovian environment, and
+\((\bm v^\dagger\bm v)'=-2\ell|b|^2\leq0\). Thus
+\(H_{\rm eff}\) is the exact amplitude generator in the one-excitation
+sector, equivalently the no-jump generator of the Markovian embedding.
+Eliminating \(b\) gives, for any real differentiable detuning,
 \begin{equation}
-\frac{\dd}{\dd\tau}\left(\bm v^\dagger\bm v\right)
-=\ii\bm v^\dagger
-\left(H_{\rm eff}^\dagger-H_{\rm eff}\right)\bm v
-=-2\ell|b|^2\leq0.
-\label{eq:pseudomodenorm}
-\end{equation}
-Thus, the loss of norm in the qubit--pseudomode sector is precisely the
-probability irreversibly transferred to the residual environment.
-Here, \(H_{\rm eff}\) is the exact amplitude generator in the
-one-excitation sector, equivalently the no-jump generator of the Markovian
-embedding. Eliminating \(b\) gives the exact scalar equation
-\begin{equation}
-c''+(\ell+\ii a\tau)c'+\frac{\ell}{2}c=0,
+c''+[\ell+\ii\delta(\tau)]c'+\frac{\ell}{2}c=0,
 \qquad c(0)=1,\quad c'(0)=0.
 \label{eq:exactODE}
 \end{equation}
 
-\subsection{Weber solution and exact logarithmic derivative}
+Removing the first derivative with
+\(c=\exp[-\ell\tau/2-(\ii/2)\int_0^\tau\delta(u)\dd u]u\) gives the
+protocol-independent normal form
+\begin{equation}
+\begin{aligned}
+u''+\left[
+\frac{\ell(2-\ell)}4+\frac{\delta^2}4
+-\frac{\ii}{2}\delta'-\frac{\ii\ell}{2}\delta
+\right]u&=0,\\
+P(\tau)&=\ee^{-\ell\tau}|u(\tau)|^2.
+\end{aligned}
+\label{eq:generalDetuningDynamics}
+\end{equation}
+Equation~\eqref{eq:generalDetuningDynamics} is the exact starting point for
+arbitrary detuning control. It also makes clear why closed forms depend on the
+waveform: linear, hyperbolic, exponential, and piecewise-affine protocols
+reduce respectively to Weber, complex Rosen--Morse, Morse, and products of
+Weber transfer matrices. Those additional exact reductions and their
+independent numerical validation are developed in the Supplemental Material.
 
-For \(a>0\), Eq.~\eqref{eq:exactODE} can be reduced explicitly to the
-Weber equation. Writing \(p(\tau)=\ell+\ii a\tau\), we apply the standard
-integrating-factor transformation
-\begin{align}
-c(\tau)
-&=\exp\!\left[-\frac12\int_0^\tau p(u)\dd u\right]y(\tau)\nonumber\\
-&=\exp\!\left(-\frac{\ell\tau}{2}
--\frac{\ii a\tau^2}{4}\right)y(\tau).
-\label{eq:gaugetransform}
-\end{align}
-For a general equation \(c''+pc'+rc=0\), this transformation yields
-\(y''+[r-p'/2-p^2/4]y=0\). Equation~\eqref{eq:exactODE} therefore becomes
+\subsection{Linear-ramp representative and exact logarithmic derivative}
+
+We now choose the exactly solvable representative
+\(\omega(t)=\omega_b-\alpha t\), or \(\delta(\tau)=a\tau\) with
+\(a=\alpha/\gamma_0^2\). The sweep covers
+\(0\leq\tau\leq\tau_f=\Omega_\Delta/a\), where
+\(\Omega_\Delta=\Delta_f/\gamma_0\), and the carrier
+\(\Omega_b=\omega_b/\gamma_0\) is chosen so that
+\(\Omega_b>\Omega_\Delta\) and \(\Omega_b/\ell\gg1\). Initial resonance
+means \(\omega(0)=\omega_b\), not that the bare parameter \(\omega_0\) in
+Eq.~\eqref{eq:Hamiltonian} must equal \(\omega_b\). The Hamiltonian further
+assumes that frequency tuning does not rotate the TLS eigenbasis or modify
+the couplings \(g_k\), as realized by longitudinal control or by a calibrated
+small fractional sweep.
+
+For \(a>0\), inserting \(\delta=a\tau\) into
+Eq.~\eqref{eq:generalDetuningDynamics} and defining
+\(z=\ee^{-\ii\pi/4}\sqrt a(\tau-\ii\ell/a)\) and
+\(\nu=\ii\ell/(2a)\) gives the standard Weber equation
 \begin{equation}
-y''+
-\left[
-\frac{(a\tau-\ii\ell)^2}{4}
-+\frac{\ell}{2}
--\frac{\ii a}{2}
-\right]y=0.
-\label{eq:preWeber}
-\end{equation}
-Introducing
-\begin{equation}
-z=\ee^{-\ii\pi/4}\sqrt a
-\left(\tau-\frac{\ii\ell}{a}\right),
-\qquad
-\nu=\frac{\ii\ell}{2a},
-\label{eq:Weberparameters}
-\end{equation}
-and using \(\dd^2/\dd\tau^2=-\ii a\,\dd^2/\dd z^2\), we obtain the
-standard Weber equation
-\begin{equation}
-\frac{\dd^2y}{\dd z^2}
-+\left(\nu+\frac12-\frac{z^2}{4}\right)y=0.
+\frac{\dd^2u}{\dd z^2}
++\left(\nu+\frac12-\frac{z^2}{4}\right)u=0.
 \label{eq:standardWeber}
 \end{equation}
-Its general solution gives
+Its exact solution is
 \begin{equation}
 c(\tau)=\ee^{-\ell\tau/2-\ii a\tau^2/4}
 \left[A D_\nu(z)+B D_\nu(-z)\right],
 \label{eq:Webersolution}
 \end{equation}
 where \(D_\nu\) is a parabolic-cylinder function~\cite{NIST2010} and \(A,B\)
-are fixed by the initial conditions. Explicit formulas are given in
-Appendix~\ref{app:weber}. Thus, a sequence of exact transformations maps the
-driven dissipative one-excitation problem with Lorentzian memory onto a Weber
-equation with complex parameters, encoding detuning and irreversible
-dissipation. We now define the logarithmic derivative
+are fixed by the initial conditions. Their explicit form, stable evaluation,
+and the other solvable waveforms are given in the Supplemental Material. The
+linear ramp is therefore an exact representative, rather than the definition,
+of the smooth-control universality class studied below.
+
+For any detuning, the logarithmic derivative \(q=c'/c\) obeys
 \begin{equation}
-q(\tau)=\frac{c'(\tau)}{c(\tau)},
-\label{eq:qdefinition}
-\end{equation}
-which obeys the exact Riccati equation
-\begin{equation}
-q'+q^2+(\ell+\ii a\tau)q+\frac{\ell}{2}=0,
+q'+q^2+[\ell+\ii\delta(\tau)]q+\frac{\ell}{2}=0,
 \qquad q(0)=0.
 \label{eq:Riccati}
 \end{equation}
-On every interval where \(c\neq0\), the dimensionless decay rate and Lamb
-shift are defined as
-\begin{equation}
-\begin{aligned}
-\bar\gamma(\tau)\equiv \frac{\gamma(\tau)}{\gamma_0}
-&=-2\Ree\{q(\tau)\},\\
-\bar s(\tau)\equiv \frac{s(\tau)}{\gamma_0}
-&=-\Imm\{q(\tau)\}.
-\end{aligned}
-\label{eq:rateandshift}
-\end{equation}
-Although \(q\) is singular at an isolated zero of \(c(\tau)\), the microscopic
-equations and the channel remain regular. On every interval where \(c\neq0\),
-the reduced map is invertible and admits the exact time-local amplitude-damping
-master equation
+On every interval where \(c\neq0\), define the dimensionless decay rate and
+Lamb shift by \(\bar\gamma=-2\Ree q\) and \(\bar s=-\Imm q\). Although
+\(q\) is singular at an isolated zero of \(c\), the microscopic equations and
+the channel remain regular. On every regular interval the reduced map is
+invertible and admits the exact time-local amplitude-damping equation
 \begin{align}
 \frac{\dd\rho_{S,I}}{\dd\tau}
 ={}&-\ii\left[
@@ -381,17 +266,10 @@ master equation
 \end{align}
 where \(\rho_{S,I}\) denotes the reduced state in the interaction picture
 defined by removing the bare dynamical phase generated by
-\(\omega(t)\sigma_+\sigma_-\). The quantities in
-Eq.~\eqref{eq:rateandshift} are therefore the exact time-local decay rate and
-Lamb-shift correction, respectively. In particular,
-\begin{align}
-\rho_{ee}'&=-\bar\gamma\rho_{ee},\nonumber\\
-\rho_{eg}'&=-\left(\frac{\bar\gamma}{2}+\ii\bar s\right)\rho_{eg}
-=q\rho_{eg},
-\label{eq:timeLocalComponents}
-\end{align}
-because \(q=-\bar\gamma/2-\ii\bar s\). For the initially excited reference
-state, \(P'=-\bar\gamma P\). When \(\bar\gamma<0\), this exact time-local
+\(\omega(t)\sigma_+\sigma_-\). It gives
+\(\rho_{ee}'=-\bar\gamma\rho_{ee}\) and
+\(\rho_{eg}'=-(\bar\gamma/2+\ii\bar s)\rho_{eg}=q\rho_{eg}\); in
+particular, \(P'=-\bar\gamma P\). When \(\bar\gamma<0\), this exact
 representation remains valid but its generator is not of GKSL form.
 
 \section{Operational and energetic meaning of a revival}
@@ -412,38 +290,18 @@ c^*\rho_{ge}&\rho_{gg}+(1-P)\rho_{ee}
 For \(c(\tau_1)\neq0\), the intermediate map has amplitude
 \(c(\tau_2)/c(\tau_1)\) and is completely positive if and only if
 \(P(\tau_2)\leq P(\tau_1)\). The same sign controls every nontrivial trace
-distance. Explicitly, let \(\rho_1(0)\) and \(\rho_2(0)\) be any two initial
-qubit states and define their evolved trace distance by
+distance. For two initial states, let
+\(D_{12}=\|\Lambda_\tau[\rho_1(0)-\rho_2(0)]\|_1/2\), and write
+\(\rho_j(0)=(\mathbb I_2+\bm r_j\cdot\bm\sigma)/2\), with
+\(|\bm r_j|\leq1\). If
+\(A=(\Delta r_x)^2+(\Delta r_y)^2\) and
+\(B=(\Delta r_z)^2\), direct evaluation gives
 \begin{equation}
-D_{12}(\tau) \equiv \frac12
-\left\|\Lambda_\tau[\rho_1(0)-\rho_2(0)]\right\|_1,
-\label{eq:tracedistancedefinition}
-\end{equation}
-where \(\|X\|_1=\Tr\sqrt{X^\dagger X}\). A positive derivative
-\(D_{12}'=\dd D_{12}/\dd\tau\) is the Breuer--Laine--Piilo (BLP) signature of information returning
-to the system. Write the two initial states in Bloch form,
-\begin{equation}
-\rho_j(0)=\frac12\left(\mathbb{I}_2+\bm r_j\cdot\bm\sigma\right),
+D_{12}=\frac12\sqrt{PA+P^2B},
 \qquad
-\bm r_j\in\mathbb R^3,\quad |\bm r_j|\leq1,
+D_{12}'=\frac{P'(A+2PB)}{4\sqrt{PA+P^2B}}.
+\label{eq:tracedistance}
 \end{equation}
-where \(\bm\sigma=(\sigma_x,\sigma_y,\sigma_z)\) is the Pauli vector in the
-basis \(\{|e\rangle,|g\rangle\}\), with
-\(\sigma_z=|e\rangle\langle e|-|g\rangle\langle g|\). If
-\(\Delta\bm r=\bm r_1-\bm r_2\) is the difference of the two initial Bloch
-vectors, define
-\begin{equation}
-A=(\Delta r_x)^2+(\Delta r_y)^2,
-\qquad B=(\Delta r_z)^2.
-\end{equation}
-Then
-\begin{align}
-D_{12}(\tau)&=\frac12\sqrt{PA+P^2B},
-\label{eq:tracedistance}\\
-D_{12}'(\tau)&=
-\frac{P'(A+2PB)}{4\sqrt{PA+P^2B}}.
-\label{eq:tracedistancerate}
-\end{align}
 Thus, no optimization over state pairs changes the sign boundary. This yields
 the following proposition.
 
@@ -455,46 +313,36 @@ for every \(\tau\in\mathcal I\),
 \begin{equation}
 \begin{aligned}
 \Ree\{q(\tau)\}>0
-&\Longleftrightarrow \bar\gamma(\tau)<0,\\
-&\Longleftrightarrow P'(\tau)>0,\\
+&\Longleftrightarrow \bar\gamma(\tau)<0\\
+&\Longleftrightarrow P'(\tau)>0\\
 &\Longleftrightarrow
-\mathcal L_\tau\ \text{is not of GKSL form}.
+\mathcal L_\tau\ \text{is not of GKSL form}\\
+&\Longleftrightarrow D_{12}'(\tau)>0 .
 \end{aligned}
 \label{eq:operationalequivalence}
 \end{equation}
 where \(\mathcal L_\tau\) is the exact time-local generator in
-Eq.~\eqref{eq:exactTimeLocalME}. Moreover, for every pair of distinct initial
-states \(\rho_1(0)\neq\rho_2(0)\),
-\begin{equation}
-\operatorname{sgn}D_{12}'(\tau)=\operatorname{sgn}P'(\tau),
-\qquad \tau\in\mathcal I.
-\label{eq:traceDistanceSignEquivalence}
-\end{equation}
-Consequently, the Rivas--Huelga--Plenio criterion of CP indivisibility and the
-Breuer--Laine--Piilo criterion of distinguishability backflow identify exactly
-the same set of regular time intervals for this amplitude-damping dynamics.
+Eq.~\eqref{eq:exactTimeLocalME}; the last equivalence holds for every distinct
+initial pair. Consequently, the Rivas--Huelga--Plenio criterion of CP
+indivisibility and the Breuer--Laine--Piilo criterion of distinguishability
+backflow identify exactly the same regular intervals.
 
 \textit{Proof.}
 Since \(P=|c|^2\) and \(q=c'/c\),
-\begin{equation}
-P'=c'c^*+c(c')^*=2P\Ree\{q\}=-\bar\gamma P.
-\label{eq:populationRateIdentity}
-\end{equation}
-Because \(c\neq0\) on \(\mathcal I\), one has \(P>0\), which proves the
+\(P'=2P\Ree q=-\bar\gamma P\). Because \(c\neq0\) on
+\(\mathcal I\), one has \(P>0\), which proves the
 first three equivalences in Eq.~\eqref{eq:operationalequivalence}. The exact
 time-local amplitude-damping generator has a single canonical dissipative
 rate, \(\bar\gamma\). It is therefore of GKSL form at time \(\tau\) if and
 only if \(\bar\gamma(\tau)\geq0\), proving the last equivalence. For two
-distinct initial states, \(A+B>0\). Since \(P>0\), the denominator in
-Eq.~\eqref{eq:tracedistancerate} is strictly positive and \(A+2PB>0\).
-Therefore, \(D_{12}'\) has the same sign as \(P'\) for every distinct initial
-pair, proving Eq.~\eqref{eq:traceDistanceSignEquivalence}.
+distinct initial states, \(A+B>0\). Equation~\eqref{eq:tracedistance} then
+shows that \(D_{12}'\) has the same sign as \(P'\) for every distinct pair.
 \hfill\(\square\)
 
 The restriction \(c\neq0\) is essential. At an isolated zero
 \(c(\tau_0)=0\), the map is noninvertible and sends every input to the ground
 state; the time-local rate and the ratio defining the intermediate amplitude
-are then undefined. Equation~\eqref{eq:tracedistancerate} also has a kinematic
+are then undefined. Equation~\eqref{eq:tracedistance} also has a kinematic
 zero-over-zero form because all instantaneous trace distances vanish. No sign
 is assigned at \(\tau_0\) itself. If \(P\) becomes positive immediately
 afterwards, however, no CPTP propagator can recover distinct outputs from that
@@ -505,41 +353,22 @@ and microscopic channel rather than by extending \(q\) through its pole.
 \subsection{Bare-system and microscopic energy balances}
 
 We now determine the energetic content of the equivalent non-Markovianity
-witnesses established in Proposition~1. Let
+witnesses established in Proposition~1. With
+\(H_S=\omega n_S\), \(n_S=\sigma_+\sigma_-\), the vacuum
+amplitude-damping channel gives \(p_e(t)=p_e(0)P(t)\) and
+\(U_S(t)=\omega(t)p_e(t)\). Its exact kinematic decomposition is
 \begin{equation}
-H_S(t)=\omega(t)n_S,
-\qquad n_S=\sigma_+\sigma_-,
-\end{equation}
-and denote the instantaneous excited-state population by
-\(p_e(t)=\Tr[n_S\rho_S(t)]\). For the vacuum amplitude-damping channel,
-\begin{equation}
-p_e(t)=p_e(0)P(t),
-\label{eq:generalExcitedPopulation}
-\end{equation}
-so \(p_e=P\) for the initially excited reference state. The bare-system energy
-is
-\begin{equation}
-U_S(t)=\Tr[H_S(t)\rho_S(t)]=\omega(t)p_e(t).
-\label{eq:bareSystemEnergy}
-\end{equation}
-Its time derivative admits the exact kinematic decomposition
-\begin{align}
-\dot U_S
-&=\Tr[\dot H_S\rho_S]+\Tr[H_S\dot\rho_S]
-\equiv\dot W_S+\dot Q_S,
-\label{eq:systemenergybalance}
-\end{align}
-where
-\begin{equation}
+\dot U_S=\dot W_S+\dot Q_S,
+\qquad
 \dot W_S=\dot\omega\,p_e,
 \qquad
 \dot Q_S=\omega\dot p_e=-\omega\gamma p_e.
-\label{eq:workheat}
+\label{eq:systemenergybalance}
 \end{equation}
 Here, \(\dot W_S\) is the power supplied by the frequency modulation, whereas
 \(\dot Q_S\) is the heat-like contribution associated with population
-changes. Equation~\eqref{eq:systemenergybalance} is an exact identity for the
-bare system. At finite coupling, however, \(\dot Q_S\) must not be identified
+changes. This is an exact identity for the bare system. At finite coupling,
+however, \(\dot Q_S\) must not be identified
 a priori with energy lost by the reservoir.
 
 For the initially excited state and the descending linear sweep,
@@ -571,7 +400,7 @@ No corresponding implication holds in general for either \(\dot U_S>0\) or
 \(-\dot E_B>0\).
 
 \textit{Proof.}
-Equation~\eqref{eq:generalExcitedPopulation} and Proposition~1 give
+The relation \(p_e(t)=p_e(0)P(t)\) and Proposition~1 give
 \(\dot p_e=-\gamma p_e\). Since \(p_e>0\) on the regular interval and
 \(\omega>0\), \(\dot Q_S=-\omega\gamma p_e\) has the opposite sign to
 \(\gamma\), proving Eq.~\eqref{eq:energybackflow}. On the other hand,
@@ -620,18 +449,10 @@ E_B(t)=\omega(0)+\int_0^t\dot\omega(u)P(u)\dd u
 -\omega(t)P(t)-2P(t)s(t).
 \label{eq:bathenergy}
 \end{equation}
-It is useful to distinguish four physically different sign conditions:
-\begin{align}
-\dot Q_S>0
-&:\quad \text{heat-like bare-system return},\nonumber\\
-\dot U_S>0
-&:\quad \text{increase of total bare-system energy},\nonumber\\
--\dot E_B>0
-&:\quad \text{reservoir-to-system energy current},\nonumber\\
--\dot E_I>0
-&:\quad \text{release of interaction energy}.
-\label{eq:energySignDictionary}
-\end{align}
+It is useful to distinguish four signs: \(\dot Q_S>0\) denotes heat-like
+bare-system return, \(\dot U_S>0\) an increase of the total bare-system
+energy, \(-\dot E_B>0\) a reservoir-to-system energy current, and
+\(-\dot E_I>0\) release of interaction energy.
 Under the assumptions of Proposition~2, only the first condition is exactly
 equivalent to the non-Markovian revival witnesses in Proposition~1. The
 remaining signs are logically independent because the control and
@@ -657,28 +478,23 @@ The microscopic currents satisfy Eq.~\eqref{eq:strongbalance} to below
 Thus released interaction energy supplies a positive \(\dot Q_S\) even though
 the reservoir gains energy and the descending sweep extracts enough work to
 make \(\dot U_S<0\). Moreover,
-\(\omega_b/\lambda=20\), so Eq.~\eqref{eq:positiveweight} gives
-\(\eta_+=0.9841\). Thus the sign separation occurs for a positive-gap sweep
+\(\omega_b/\lambda=20\), for which the positive-frequency weight evaluated
+in the Supplemental Material is \(\eta_+=0.9841\). Thus the sign separation occurs for a positive-gap sweep
 with \(98.41\%\) of the Lorentzian spectral weight at positive frequencies. This makes an
 explanation based solely on the small negative-frequency tail implausible for
 this example, without asserting a universal causal exclusion.
 
-For this reference state, the global system--reservoir state remains pure, with
-Schmidt weights \(P\) and \(1-P\). Its mutual information is therefore
+For this reference state, the global system--reservoir state remains pure,
+with Schmidt weights \(P\) and \(1-P\). Hence
 \begin{equation}
 \I_{S:B}=2h_2(P),
 \qquad
-h_2(P)=-P\ln P-(1-P)\ln(1-P),
+\dot\I_{S:B}=\frac{2\dot Q_S}{\omega}
+\ln\!\left(\frac{1-P}{P}\right),
 \label{eq:mutualInformation}
 \end{equation}
-and, for \(0<P<1\),
-\begin{equation}
-\dot\I_{S:B}
-=2\dot P\ln\!\left(\frac{1-P}{P}\right)
-=\frac{2\dot Q_S}{\omega}
-\ln\!\left(\frac{1-P}{P}\right).
-\label{eq:mutualInformationRate}
-\end{equation}
+where \(h_2(P)=-P\ln P-(1-P)\ln(1-P)\) and the derivative holds for
+\(0<P<1\).
 Consequently, correlation growth and positive heat-like current are not
 equivalent: their signs agree for \(P<1/2\) and are opposite for \(P>1/2\).
 Moreover, \(E_I\) is an interaction-energy contribution, not by itself a
@@ -749,65 +565,28 @@ two.
 \subsection{Exceptional-point anchor at constant resonance}
 \label{subsec:EP}
 Consider first a constant system gap. At \(a=0\),
-Eq.~\eqref{eq:exactODE} gives
-\begin{align}
-c_0(\tau)&=\ee^{-\ell\tau/2}
-\left[
-\cosh\left(\frac{d\tau}{2}\right)
-+\frac{\ell}{d}\sinh\left(\frac{d\tau}{2}\right)
-\right],
-\nonumber\\
-d&=\sqrt{\ell^2-2\ell}.
-\label{eq:constantresonance}
-\end{align}
-For \(\ell<2\), let \(\kappa=\sqrt{2\ell-\ell^2}\). The first zero occurs at
+Eq.~\eqref{eq:exactODE} is oscillatory and produces a revival for
+\(\ell<2\), whereas it is monotone for \(\ell\geq2\). This threshold is the
+spectral singularity of the exact generator, not an analogy added after the
+solution. Removing the trace of Eq.~\eqref{eq:Heff} for an arbitrary detuning
+gives
 \begin{equation}
-\tau_0(\ell)=\frac{2}{\kappa}
-\left[\pi-\arctan\left(\frac{\kappa}{\ell}\right)\right],
-\label{eq:firstzero}
-\end{equation}
-and is followed by a revival. For \(\ell\geq2\), the decay is monotone.
-Thus
-\begin{equation}
-a=0:\qquad \text{non-Markovian dynamics}
-\Longleftrightarrow \ell<2.
-\label{eq:staticthreshold}
-\end{equation}
-
-The exceptional-point origin of this threshold follows directly from the
-effective generator in Eq.~\eqref{eq:Heff}. At resonance, removing its scalar
-trace gives
-\begin{equation}
+\begin{aligned}
 \widetilde H_{\rm eff}
-=H_{\rm eff}-\frac{\Tr H_{\rm eff}}{2}\mathbb{I}_2
-=g\sigma_x+\frac{\ii\ell}{2}\sigma_z.
-\label{eq:PTHamiltonian}
+&=g\sigma_x-\frac{\delta(\tau)-\ii\ell}{2}\sigma_z,\\
+\widetilde E_\pm
+&=\pm\sqrt{g^2+\frac{[\delta(\tau)-\ii\ell]^2}{4}}.
+\end{aligned}
+\label{eq:EPdiscriminant}
 \end{equation}
-This traceless generator is invariant under the antilinear transformation
-\(\mathcal{PT}=\sigma_x\mathcal K\), where \(\mathcal K\) denotes complex
-conjugation:
-\begin{equation}
-(\sigma_x\mathcal K)\widetilde H_{\rm eff}
-(\sigma_x\mathcal K)^{-1}=\widetilde H_{\rm eff}.
-\end{equation}
-Its two eigenvalues are
-\begin{equation}
-\widetilde E_\pm=\pm\sqrt{g^2-\frac{\ell^2}{4}},
-\end{equation}
-and their splitting is
-\begin{equation}
-\widetilde E_+-\widetilde E_-
-=2\sqrt{g^2-\frac{\ell^2}{4}}
-=\sqrt{2\ell-\ell^2},
-\label{eq:EPsplitting}
-\end{equation}
-where \(g^2=\ell/2\) has been used. The eigenvalues and eigenvectors coalesce
-at the nontrivial critical value \(\ell=2\), identifying the static revival
-threshold as a second-order exceptional point of the exact amplitude
-generator. Away from resonance, the detuning contributes
-\(-a\tau\sigma_z/2\) to the traceless generator and explicitly breaks its
-\(\mathcal{PT}\) symmetry. The frequency sweep can therefore be interpreted
-as a controlled nonautonomous unfolding of the resonant exceptional point.
+At resonance this generator is \(\mathcal{PT}\)-symmetric under
+\(\sigma_x\mathcal K\), and its eigenvalue splitting is
+\(\sqrt{2\ell-\ell^2}\). The eigenvalues and eigenvectors coalesce at
+\(\delta=0\), \(\ell=2\), establishing the static revival threshold as a
+second-order exceptional point. A real detuning is a longitudinal,
+\(\mathcal{PT}\)-breaking perturbation, so any time-dependent frequency
+protocol traces a nonautonomous path that unfolds this exact exceptional
+point.
 
 This spectrum must not be identified without further derivation with an
 exceptional point of the complete Liouvillian superoperator used in recent
@@ -816,126 +595,73 @@ damped/underdamped coalescence of a two-mode amplitude generator is known; our
 result is the nonautonomous unfolding of that anchor, not a transition
 postulated in a phenomenological non-Hermitian model~\cite{Heiss2012,Minganti2022}.
 
-\subsection{Fractional slow-sweep law}
+\subsection{Universal slow-control unfolding}
 \label{subsec:slowsweep}
 
-We now determine how the exceptional-point anchor moves when \(a\to0^+\).
-Substitution of Eq.~\eqref{eq:gaugetransform} into the exact equation gives
+To distinguish a local passage through resonance from the global waveform,
+consider the analytic slow family
+\(\delta_a(\tau)=d f(a\tau/d)\), with
+\(f(x)=x+c_mx^m+O(x^{m+1})\), \(m\geq2\). Every member has the same local
+slope \(\delta_a'(0)=a\), while \(d\) fixes the eventual detuning scale.
+This class includes linear ramps on a finite window and bounded hyperbolic,
+arctangent, algebraic, and exponential saturations. It does not assume that
+their global time traces coincide.
+
+The exceptional point of Eq.~\eqref{eq:EPdiscriminant} contains a
+two-dimensional Jordan block. For a simple slow crossing, its dynamical
+boundary is resolved by the singular scaling
 \begin{equation}
-y''+\left[
-\frac{\ell(2-\ell)}4+\frac{a^2\tau^2}{4}
--\frac{\ii a}{2}-\frac{\ii\ell a\tau}{2}
-\right]y=0.
-\label{eq:yequation}
-\end{equation}
-The critical layer uses the nonstandard scaling
-\begin{equation}
-\epsilon=a^{1/4},\qquad
-2-\ell=\mu\epsilon^2,\qquad
-s=\epsilon\tau,\qquad
-U(s)=\epsilon y(\tau).
+\begin{aligned}
+\epsilon&=a^{1/4},&
+2-\ell&=\mu\epsilon^2,\\
+s&=\epsilon\tau,&
+\mu&=\mu_0+\epsilon\mu_1+O(\epsilon^2).
+\end{aligned}
 \label{eq:criticalscaling}
 \end{equation}
-To motivate this scaling, let \(\Delta_\ell=2-\ell\). The first zero of the
-static solution approaches \(\tau_0=O(\Delta_\ell^{-1/2})\), while its
-leading chirp-induced imaginary lift is governed by the combination
-\(a/\Delta_\ell^2\). A finite lift at threshold therefore requires
-\(\Delta_\ell^2=O(a)\), which gives
-\(\Delta_\ell=O(a^{1/2})\) and
-\(\tau_0=O(a^{-1/4})\). Equation~\eqref{eq:criticalscaling} implements this
-dominant balance. It is a matched singular
-perturbation expansion around a lifted zero, not a WKB approximation. WKB
-enters only later, to control the remote oscillation cells. Substituting
-Eq.~\eqref{eq:criticalscaling} into Eq.~\eqref{eq:yequation} gives
-\begin{equation}
-U''+\left[
-\frac{\mu}{2}-\frac{\ii\ell\epsilon s}{2}
--\epsilon^2\left(\frac{\mu^2}{4}+\frac{\ii}{2}\right)
-+\frac{\epsilon^4s^2}{4}
-\right]U=0,
-\label{eq:scaledcriticalequation}
-\end{equation}
-where now a prime means \(\dd/\dd s\). We seek a perturbative solution of the form
-\begin{equation}
-\mu=\mu_0+\epsilon\mu_1+\epsilon^2\mu_2+\cdots,
-\qquad
-U=U_0+\epsilon U_1+\epsilon^2U_2+\cdots .
-\label{eq:criticalexpansion}
-\end{equation}
-With \(k^2=\mu_0/2\) and
-\(\mathcal L=\dd^2/\dd s^2+k^2\), the first equations of the hierarchy are
-\begin{align}
-\mathcal L U_0&=0,
-\label{eq:U0hierarchy}\\
-\mathcal L U_1&=\left(\ii s-\frac{\mu_1}{2}\right)U_0,
-\label{eq:U1hierarchy}\\
-\mathcal L U_2&=\left(\ii s-\frac{\mu_1}{2}\right)U_1
-+\left(\frac{\mu_0^2}{4}+\frac{\ii}{2}
--\frac{\mu_2}{2}\right)U_0.
-\label{eq:U2hierarchy}
-\end{align}
-The transformed initial data are \(U(0)=\epsilon\) and
-\(U'(0)=\ell/2\). Thus \(U_0(0)=0\), \(U_0'(0)=1\), and at leading order
-\begin{equation}
-U_0(s)=\frac{\sin(ks)}{k},
-\qquad k^2=\frac{\mu_0}{2}.
-\label{eq:Uzero}
-\end{equation}
-The inhomogeneous term, \(\ii sU_0\), in
-Eq.~\eqref{eq:U1hierarchy} is the first effect of the chirp and lifts the real
-zeros of \(U_0\) into the complex plane. The inverse of \(\mathcal L\) with
-zero initial data is the retarded Green function
-\begin{align}
-G(s,r)&=\frac{\sin[k(s-r)]}{k}\,\Theta(s-r),
-\nonumber\\
-(\mathcal L^{-1}F)(s)&=\int_0^sG(s,r)F(r)\dd r.
-\label{eq:criticalGreenfunction}
-\end{align}
-Consequently, at the first zero \(s_0=\pi/k\), the imaginary lift is
-\begin{equation}
-w_0=\frac1{k^2}\int_0^{\pi/k}r\sin^2(kr)\dd r
-=\frac{\pi^2}{4k^4}.
-\label{eq:wzero}
-\end{equation}
-Writing \(s=s_0+\epsilon\xi\), one obtains
-\begin{equation}
-\Ree\{q\}=-1+\frac{u}{u^2+w_0^2}+O(\epsilon),
-\qquad u=\xi+1.
-\label{eq:innerq}
-\end{equation}
-The maximum of the inner fraction occurs at \(u=w_0\). The tangency condition
-is therefore \(w_0=1/2\), which gives
-\begin{equation}
-\mu_0=\sqrt2\,\pi.
-\label{eq:mu0}
-\end{equation}
+Indeed, if \(\Delta_\ell=2-\ell\), the first resonant zero occurs at
+\(O(\Delta_\ell^{-1/2})\), whereas its control-induced imaginary lift is
+governed by \(a/\Delta_\ell^2\). Finite lifting therefore requires
+\(\Delta_\ell=O(a^{1/2})\) and a critical time of order \(a^{-1/4}\), which
+is precisely Eq.~\eqref{eq:criticalscaling}. This is a matched singular
+expansion around a dynamically lifted zero, or equivalently a dynamical
+Puiseux expansion of the exceptional-point Jordan block; it is not an
+instantaneous spectral or ordinary WKB approximation.
 
-At the next order, Eqs.~\eqref{eq:U1hierarchy} and
-\eqref{eq:U2hierarchy} are solved by applying the explicit kernel
-\eqref{eq:criticalGreenfunction} to their right-hand sides. Only the values
-of these integrals at \(s_0\), together with the local coordinate
-\(s=s_0+\epsilon\xi\), enter the double-tangency condition. The exact calculation gives
+The linear Weber representative determines the two solvability coefficients
+exactly, \(\mu_0=\sqrt2\pi\) and
+\(\mu_1=-\sqrt\pi/2^{3/4}\). Perturbing the same critical layer by the first
+nonlinear Taylor coefficient \(c_m\) gives the general result
 \begin{equation}
-\mu_1=-\frac{\sqrt\pi}{2^{3/4}}.
-\label{eq:mu1}
-\end{equation}
-See Appendix~\ref{app:asymptotics} for further details. Thus, \(\mu_1\) is not obtained by fitting the boundary: it is the solvability
-coefficient that keeps the lifted-zero maximum tangent to zero at the next
-order. We arrive at the main analytical result:
-\begin{equation}
-\ell_{\rm c}(a)=2-\sqrt2\,\pi a^{1/2}
-+\frac{\sqrt\pi}{2^{3/4}}a^{3/4}+O(a),
-\qquad a\to0^+.
+\begin{aligned}
+\ell_{\rm c}^{(f)}(a)
+&=2-\sqrt2\,\pi a^{1/2}
++\frac{\sqrt\pi}{2^{3/4}}a^{3/4}+O(a),\\
+\ell_{\rm c}^{(f)}(a)-\ell_{\rm c}^{\rm lin}(a)
+&=-K_m c_m d^{1-m}a^{(3m-1)/4}\\
+&\quad+o\!\left(a^{(3m-1)/4}\right).
+\end{aligned}
 \label{eq:mainboundary}
 \end{equation}
-The critical time scales as
-\begin{equation}
-\tau_*(a)=\sqrt{\sqrt2\pi}\,a^{-1/4}+O(1).
-\label{eq:criticaltime}
-\end{equation}
-For every fixed \(\Omega_\Delta>0\),
+Here
+\(K_m=\mu_0k_0^{-(m+3)}\int_0^\pi x^m\sin^2x\,\dd x\), with
+\(k_0^2=\pi/\sqrt2\). Thus the \(a^{1/2}\) and \(a^{3/4}\) coefficients
+are universal for analytic controls with the same local slope. Curvature
+first enters at \(a^{5/4}\), while the first correction for an odd profile
+is \(O(a^2)\). The full hierarchy, Green-function solvability calculation,
+and exact hyperbolic and exponential checks are given in the Supplemental
+Material.
+
+The instantaneous non-Hermitian spectrum by itself supplies only the
+square-root branching at the exceptional point. The coefficient of
+\(a^{3/4}\) additionally contains the nonadiabatic propagation, initial
+condition, and double-tangency constraint; it is therefore a dynamical
+solvability coefficient, not a fit or a consequence of eigenvalues alone.
+The critical time is
+\(\tau_*(a)=\sqrt{\sqrt2\pi}\,a^{-1/4}+O(1)\). For every fixed
+\(\Omega_\Delta>0\),
 \(\tau_*/(\Omega_\Delta/a)=O(a^{3/4})\); hence the tangency occurs parametrically
-before the endpoint. We remark that Eq.~\eqref{eq:mainboundary} is not a fit. Figure
+before the endpoint. Figure
 \ref{fig:boundaryasymptotics} compares the exact double-tangency continuation
 with the one- and two-term formulas, shows the coefficient collapse, and
 resolves the controlled \(O(a)\) remainder.
@@ -953,63 +679,36 @@ finite-sweep tip for \(\Omega_\Delta=5/4\).}
 \subsection{Uniform asymptotic control beyond the first lifted zero}
 \label{subsec:uniformity}
 
-At the \(n\)th zero \(s_n=n\pi/k\), the imaginary lift is
+At the \(n\)th resonant zero, the control-induced imaginary lift grows as
+\(|w_n|=n^2\pi^2/(4k^4)\), so every fixed later cell is less favorable to a
+revival than the first. Because the number of cells diverges as \(a\to0\), a
+global statement additionally requires uniform control. With
+\(N_\epsilon=\lfloor\epsilon^{-1/4}\rfloor\), the exact estimates are
 \begin{equation}
-w_n=(-1)^{n+1}\frac{n^2\pi^2}{4k^4}.
-\label{eq:wn}
+\begin{aligned}
+\sup_{\mathcal C_n}\Ree q
+&=-1+n^{-2}+O(\epsilon^{1/2}),
+&&2\leq n\leq N_\epsilon,\\
+\sup_{\mathcal C_n}\Ree q
+&\leq-1+C\epsilon^{1/2}\ln^{3/2}(1/\epsilon),
+&&n\geq N_\epsilon
+\end{aligned}
+\label{eq:uniformbounds}
 \end{equation}
-Thus, every fixed later zero is less favorable to a revival than the first.
-This fixed-\(n\) statement alone is insufficient, because the number of
-oscillation cells diverges as \(a\to0\). Appendix~\ref{app:uniform} closes
-that gap with two overlapping estimates. For
-\(N_\epsilon=\lfloor\epsilon^{-1/4}\rfloor\), Duhamel control gives
-\begin{equation}
-\sup_{\mathcal C_n}\Ree\{q\}
-=-1+\frac1{n^2}+O(\epsilon^{1/2}),
-\qquad 2\leq n\leq N_\epsilon.
-\label{eq:earlyuniform}
-\end{equation}
-A weighted no-turning-point Liouville--Green basis then gives
-\begin{equation}
-\sup_{\mathcal C_n}\Ree\{q\}
-\leq-1+C\epsilon^{1/2}\ln^{3/2}(1/\epsilon)
-\label{eq:lateuniform}
-\end{equation}
-through the crossover
-\(s=O[\epsilon^{-1/2}\sqrt{\ln(1/\epsilon)}]\). Here,
-Liouville--Green means the controlled WKB representation of the scaled
-equation \(U''+Q_\epsilon(s)U=0\) in the basis
-\begin{equation}
-\psi_\pm(s)=Q_\epsilon(s)^{-1/4}
-\exp\!\left[\pm\ii\int_0^s\sqrt{Q_\epsilon(r)}\dd r\right].
-\label{eq:LGbasis}
-\end{equation}
-This is the no-turning-point form of the standard Liouville--Green
-construction~\cite{Olver1997}.
-It is called ``no turning point'' because the complex coefficient
-\(Q_\epsilon\) has no zero on the real crossover interval; hence a continuous
-branch of \(\sqrt{Q_\epsilon}\) exists there. Unlike the local lifted-zero
-expansion, this basis remains uniform across a number of oscillations that
-diverges as \(a\to0\). Appendix~\ref{app:uniform} bounds its accumulated
-variation and the associated remainder. At the crossover exit the solution
-enters the attracting frozen Riccati branch with
-\begin{equation}
-|q-q_s|=O(\epsilon^2),
-\qquad
-q_s(\delta)=-\frac{\ell+\ii\delta}{2}
-+\frac12\sqrt{(\ell+\ii\delta)^2-2\ell},
-\label{eq:slowbranch}
-\end{equation}
-and \(\Ree\{q_s\}<0\) for every \(\delta>0\). An invariant Riccati tube preserves
-this sign to the end of the sweep. Consequently, in the asymptotic regime and
-at the critical value in
-Eq.~\eqref{eq:mainboundary}, the first tangency has zero height while all later
-maxima retain a strictly negative margin. This makes the matched expansion
-uniform over the full finite linear sweep as \(a\to0^+\); it is distinct from
-the finite-\(a\) numerical branch certification described in
-Sec.~\ref{sec:finitesweep}.
+through the crossover layer. The first line follows from Duhamel control of
+the lifted zeros. The second uses a no-turning-point Liouville--Green basis,
+possible because the complex coefficient in
+Eq.~\eqref{eq:generalDetuningDynamics} has no real zero there. At the exit,
+the solution lies within \(O(\epsilon^2)\) of the attracting frozen Riccati
+branch, whose real part is negative for positive detuning; an invariant tube
+then preserves the sign. The full estimates and remainder bounds are given in
+the Supplemental Material~\cite{Olver1997}.
 
-The Supplemental Material tests the two leading fractional coefficients for analytic control profiles with the same local slope and records the corresponding exactly solvable examples.
+Consequently, at Eq.~\eqref{eq:mainboundary} the first tangency has zero
+height while every later maximum retains a negative margin. This closes the
+global part of the universality statement for the monotone analytic profiles
+specified above; it is distinct from the finite-\(a\) branch certification in
+Sec.~\ref{sec:finitesweep}.
 
 \section{Finite-sweep geometry}
 \label{sec:finitesweep}
@@ -1133,6 +832,7 @@ partition of \(\dot Q_S\), and the distinct signs allowed for \(\dot Q_S\) and
 \(\dot U_S\). Integrated measures and the illustrative rate-matched spectral
 comparison are reported in the Supplemental Material.
 
+\clearpage
 \section{Markovian failure, experimental outlook, and conclusions}
 \label{sec:Markovian}
 
@@ -1179,13 +879,15 @@ A direct population-level test can be implemented with a tunable qubit coupled
 to a lossy cavity mode, which realizes the Lorentzian pseudomode in
 Eq.~\eqref{eq:pseudomode}. After calibrating \(\gamma_0\) and the cavity
 linewidth \(\lambda\), one prepares a single qubit excitation with the mode
-near vacuum, sets \(\omega(0)=\omega_b\), and applies a chirp with
+near vacuum, sets \(\omega(0)=\omega_b\), and applies a smooth frequency
+modulation with
 \(\Delta_f<\omega_b\). Repeated measurements of the full population trace,
 fitted directly to Eq.~\eqref{eq:pseudomode}, locate the revival without
 numerically differentiating noisy data near a population minimum. Scans of
-the chirp and linewidth would map the critical lobe, test the
-\(a^{1/2}+a^{3/4}\) law, and resolve the endpoint cusp by varying the sweep
-range.
+the initial slope and linewidth would map the critical lobe and test the
+\(a^{1/2}+a^{3/4}\) law. Repeating the scan with different analytic waveforms
+matched in value and slope at resonance would directly test the predicted profile-independent
+coefficients, while varying the sweep range would resolve the endpoint cusp.
 
 The population measurement alone certifies the sign of \(\dot Q_S\). A
 microscopic partition of that current additionally requires the cavity output
@@ -1196,24 +898,29 @@ measurement protocol are given in the Supplemental Material.
 \subsection{Conclusions}
 \label{sec:conclusion}
 
-We have derived the critical revival geometry of a frequency-swept qubit
-coupled to an effective full-line Lorentzian reservoir. The boundary is not a smooth
-perturbation of the static threshold. A chirp lifts the first zero of the
-resonant survival amplitude into the complex plane and produces the fractional
-law \(a^{1/2}+a^{3/4}\). A uniform logarithmic-derivative estimate controls
-all later cells in the slow-sweep limit. At finite duration, numerical
-continuation of the exact implicit conditions resolves the switch from an
-interior tangency to endpoint control, the weak-coupling Fresnel birth, and a
-terminal square-root cusp.
+We have derived the exact one-excitation dynamics of a frequency-controlled
+qubit in a Lorentzian reservoir for an arbitrary detuning protocol. The
+reservoir memory is represented by a single damped auxiliary mode, and a
+linear ramp gives a closed Weber solution without defining the scope of the
+result. For analytic slow controls that cross resonance with the same local
+slope, the critical revival boundary has the universal fractional form
+\(a^{1/2}+a^{3/4}\); the global waveform enters only at higher order. A
+uniform logarithmic-derivative estimate controls all later cells in the
+slow-control limit. At finite duration, numerical continuation of the exact
+implicit conditions resolves the switch from an interior tangency to endpoint
+control, the weak-coupling Fresnel birth, and a terminal square-root cusp.
 
-The pseudomode representation unifies these facts. The static threshold
-\(\ell=2\) is an exceptional point of the exact one-excitation amplitude
-generator, not a claim about the full extended Liouvillian spectrum. The
-frequency sweep is a controlled \(\mathcal{PT}\)-breaking perturbation. The
-first two fractional coefficients are universal with respect to the tested
-analytic changes of the control profile that preserve its local slope; no
-universality over arbitrary spectral densities is claimed. The Supplemental
-Material documents those profile tests, finite-range reordering, an exact
+The non-Hermitian representation unifies these facts. The static threshold
+\(\ell=2\) is a second-order exceptional point of the exact one-excitation
+amplitude generator, not a claim about the full extended Liouvillian spectrum.
+Frequency control drives a nonautonomous, \(\mathcal{PT}\)-breaking passage
+away from its Jordan block. The leading square-root displacement reflects the
+exceptional-point branch structure, whereas the \(a^{3/4}\) coefficient also
+contains propagation, the initial condition, and the revival tangency. Their
+universality therefore follows from the local critical dynamics, rather than
+from the instantaneous spectrum alone. No universality over arbitrary
+spectral densities is claimed. The Supplemental Material documents the
+profile-dependent higher-order corrections, finite-range reordering, an exact
 multipseudomode extension for sums of displaced Lorentzians, and illustrative
 rate-matched power-law trajectories. These extensions preserve the exact
 channel identities but show that revival magnitudes and final populations are
@@ -1250,227 +957,6 @@ are openly available in the public GitHub repository cited in
 Ref.~\cite{DataArchive}. The repository contains the inputs needed to
 regenerate all figures and Table~SII and to verify the analytical coordinates
 and energy balances.
-
-\appendix
-
-\section{Parabolic-cylinder representation}
-\label{app:weber}
-
-Let
-\begin{equation}
-z_0=-\ee^{-\ii\pi/4}\frac{\ii\ell}{\sqrt a},
-\qquad \eta=\ee^{-\ii\pi/4}\sqrt a.
-\end{equation}
-The coefficients in Eq.~\eqref{eq:Webersolution} are the unique solution of
-\begin{equation}
-\begin{pmatrix}
-D_\nu(z_0)&D_\nu(-z_0)\\
-\eta D_\nu'(z_0)&-\eta D_\nu'(-z_0)
-\end{pmatrix}
-\begin{pmatrix}A\\B\end{pmatrix}
-=\begin{pmatrix}1\\\ell/2\end{pmatrix}.
-\label{eq:ABsystem}
-\end{equation}
-Using \(D_\nu'(z)=zD_\nu(z)/2-D_{\nu+1}(z)\), the logarithmic derivative can
-be evaluated without numerical differentiation:
-\begin{equation}
-q=-\frac\ell2-\frac{\ii a\tau}{2}
-+\eta\frac{A D_\nu'(z)-B D_\nu'(-z)}
-{A D_\nu(z)+B D_\nu(-z)}.
-\label{eq:qWeber}
-\end{equation}
-For very small \(a\), the large imaginary order
-\(\nu=\ii\ell/(2a)\) makes direct special-function evaluation ill-conditioned.
-We therefore used Eq.~\eqref{eq:exactODE}, its exponentially desingularized
-form, and Eq.~\eqref{eq:Riccati} as independent numerical representations.
-At \(a=10^{-2}\), their values of \(q\) at the critical tangency agree within
-\(3.2\times10^{-12}\).
-
-\section{Second fractional coefficient}
-\label{app:asymptotics}
-
-Write \(\mu=\mu_0+\epsilon\mu_1+\epsilon^2\mu_2+\cdots\) and
-\(\mathcal L=\dd^2/\dd s^2+k^2\), with
-\(k^2=\mu_0/2\). The first correction to Eq.~\eqref{eq:Uzero} is
-\begin{align}
-\mathcal L U_1&=\left(\ii s-\frac{\mu_1}{2}\right)U_0,
-\label{eq:U1equation}\\
-U_1&=\cos(ks)+\ii w(s)-\frac{\mu_1}{2}z(s),\nonumber\\
-z(s)&=-\frac{s\cos(ks)}{2k^2}
-+\frac{\sin(ks)}{2k^3}.
-\label{eq:zfunction}
-\end{align}
-The cosine in \(U_1\) enforces \(U_1(0)=1\), inherited from
-\(U(0)=\epsilon\). The two particular solutions are explicitly
-\begin{align}
-w(s)&=\int_0^sG(s,r)\,rU_0(r)\dd r,
-\nonumber\\
-z(s)&=\int_0^sG(s,r)\,U_0(r)\dd r,
-\label{eq:wzGreen}
-\end{align}
-where \(G\) is Eq.~\eqref{eq:criticalGreenfunction}. Thus the phrase
-``Green-function integral'' refers simply to the exact inverse of the
-constant-coefficient operator \(\mathcal L\), not to an additional
-approximation.
-At \(s_0=\pi/k\),
-\begin{equation}
-d:=w'(s_0)=\frac{\pi}{4k^3},
-\qquad z(s_0)=\frac{\pi}{2k^3},
-\qquad z'(s_0)=0.
-\label{eq:criticalvalues}
-\end{equation}
-If \(v_2=\Imm U_2\), the only Green-function value needed at the next order is
-\begin{equation}
-v_2(s_0)=\mu_1A_1,
-\qquad
-A_1=-\frac{3\pi^2}{16k^6}.
-\label{eq:A1}
-\end{equation}
-Indeed, Eq.~\eqref{eq:U2hierarchy} gives
-\begin{align}
-U_2(s)&=U_2^{\rm hom}(s)
-+\int_0^sG(s,r)\mathcal S_2(r)\dd r,
-\nonumber\\
-\mathcal S_2(r)&=\left(\ii r-\frac{\mu_1}{2}\right)U_1(r)
-\nonumber\\
-&\quad+\left(\frac{\mu_0^2}{4}+\frac{\ii}{2}
--\frac{\mu_2}{2}\right)U_0(r),
-\label{eq:U2Green}
-\end{align}
-and taking its imaginary part at \(s_0\) reduces the elementary sine
-integrals to Eq.~\eqref{eq:A1}. The homogeneous term enforces the order-two
-initial derivative and vanishes at \(s_0\).
-After absorbing the real displacement into the inner coordinate, the maximal
-logarithmic population rate becomes
-\begin{equation}
-\max_\xi\Ree q=
-2\epsilon\left[d+\mu_1(d^2-A_1)\right]+O(\epsilon^2).
-\label{eq:qnext}
-\end{equation}
-The tangency condition therefore gives
-\begin{equation}
-\mu_1=\frac{d}{A_1-d^2}
-=-\frac{k^3}{\pi}
-=-\frac{\sqrt\pi}{2^{3/4}},
-\end{equation}
-which proves the second term in Eq.~\eqref{eq:mainboundary}.
-
-\section{Uniform crossover and late-time sign control}
-\label{app:uniform}
-
-We state the estimate for a smooth saturating extension of the finite linear
-sweep. Since the extension begins after \(\tau_f\), it does not modify the
-physical dynamics. More generally, let
-\(\delta_a(\tau)=d f(a\tau/d)\), where
-\(f\in C^3([0,\infty))\), \(f(0)=0\), \(f'(0)=1\), \(f'\geq0\), the first
-three derivatives are bounded, and \(f\) approaches a positive constant.
-Assume \((2-\ell)/\epsilon^2\to\mu_0\), where
-\(\epsilon=a^{1/4}\).
-
-Fix \(L>L_0\), with \(L_0\) independent of \(\epsilon\), and set
-\begin{align}
-S_\epsilon&=L\epsilon^{-1/2}\sqrt{\ln(1/\epsilon)},
-\qquad N_\epsilon=\lfloor\epsilon^{-1/4}\rfloor,
-\nonumber\\
-k_\epsilon^2&=\frac{2-\ell}{2\epsilon^2}.
-\label{eq:splitindices}
-\end{align}
-Then \(k_\epsilon\to k_0\), where
-\(k_0^2=\mu_0/2=\pi/\sqrt2\). The constant \(L_0\) is chosen once so that
-the Liouville--Green damping accumulated by \(S_\epsilon\) dominates the
-algebraic matching errors below; it does not grow as \(\epsilon\to0\).
-There are \(C,\epsilon_0>0\), independent of the oscillation-cell index, such
-that for \(0<\epsilon<\epsilon_0\),
-\begin{align}
-\sup_{\mathcal C_n}\Ree q
-&=-1+\frac1{n^2}+O(\epsilon^{1/2}),
-&&2\leq n\leq N_\epsilon,
-\label{eq:appendixearly}\\
-\sup_{\mathcal C_n}\Ree q
-&\leq-1+C\epsilon^{1/2}\ln^{3/2}(1/\epsilon),
-&&N_\epsilon\leq n\leq k_0S_\epsilon/\pi.
-\label{eq:appendixlate}
-\end{align}
-In particular, the entire set of later cells has limiting upper bound
-\(-3/4\).
-
-For completeness, the main ingredients are as follows. On the crossover
-interval the scaled equation has coefficient
-\begin{align}
-Q_\epsilon(s)&=k_\epsilon^2-\frac{\ii\ell\epsilon s}{2}
-+R_\epsilon(s),\nonumber\\
-|R_\epsilon|+(1+s)^{-1}|R_\epsilon'|
-&\leq C\epsilon^2(1+s^2).
-\label{eq:Qremainder}
-\end{align}
-For \(n\leq N_\epsilon\), Duhamel's formula about
-\(U_0=\sin(k_\epsilon s)/k_\epsilon\) resolves each lifted zero. The lift has
-size \(\epsilon n^2\), while the remainder after division by the local
-solution contributes only \(O(\epsilon n^2)\), proving
-Eq.~\eqref{eq:appendixearly}.
-
-For \(n\geq N_\epsilon\), set \(p_a=\sqrt{Q_\epsilon}\), using the branch
-continued from \(p_a(0)>0\). The imaginary chirp term keeps
-\(Q_\epsilon(s)\) away from zero for real \(s>0\) in the crossover, so no
-turning-point connection formula is required. Substitution of
-\(p_a^{-1/2}\exp(\pm\ii\int p_a\dd s)\) into the scaled equation leaves the
-standard Liouville--Green residual
-\begin{equation}
-\mathcal R_a=
-\frac{3(p_a')^2}{4p_a^3}-\frac{p_a''}{2p_a^2}.
-\label{eq:LGresidual}
-\end{equation}
-Variation of constants around this basis is controlled by its integral,
-\begin{equation}
-\int_0^{S_\epsilon}
-|\mathcal R_a(s)|\dd s
-=O\!\left(\epsilon^{3/2}\sqrt{\ln(1/\epsilon)}\right).
-\label{eq:variationintegral}
-\end{equation}
-Define the accumulated imaginary Liouville--Green phase by
-\begin{equation}
-\Theta_a(s)=\left|\Im\int_0^s p_a(r)\dd r\right|.
-\label{eq:LGphase}
-\end{equation}
-At the late-cell entry, \(\Theta_a(s_n)\geq c\epsilon^{1/2}\), so the weighted
-basis bounds can be divided
-by the exact solution without a small-denominator loss. This proves
-Eq.~\eqref{eq:appendixlate}. At the exit,
-\begin{equation}
-\tau_m=\frac{S_\epsilon}{\epsilon},\qquad
-r_m:=\left|q(\tau_m)-q_s[\delta_a(\tau_m)]\right|
-\leq C\epsilon^2.
-\label{eq:entrybound}
-\end{equation}
-
-To control the remaining tail, write \(e=q-q_s(\delta)\) and
-\(\Delta=\sqrt{(\ell+\ii\delta)^2-2\ell}=u+\ii v\), \(u>0\). The exact
-Riccati equation gives
-\begin{equation}
-e'=-\Delta e-e^2-q_{s,\delta}\delta'.
-\end{equation}
-For \(r=|e|\), its upper Dini derivative satisfies
-\begin{equation}
-D^+r\leq-u r+r^2+|q_{s,\delta}\delta'|.
-\label{eq:tubeinequality}
-\end{equation}
-Let \(u_*\) and \(m_*\) be the minimum of \(u\) and
-\(-\Ree q_s\) on the tail, and let
-\(F_*\) be the maximum forcing. If \(u_*^2>4F_*\), define
-\begin{equation}
-R_\pm=\frac{u_*\pm\sqrt{u_*^2-4F_*}}2.
-\end{equation}
-The comparison principle gives the invariant-tube criterion
-\begin{equation}
-\max\{r_m,R_-\}<\min\{m_*,R_+\}
-\quad\Longrightarrow\quad
-\Ree q(\tau)<0
-\label{eq:tubecriterion}
-\end{equation}
-for every later time. Equation~\eqref{eq:entrybound} satisfies this criterion
-for all sufficiently small \(a\), completing the global sign proof.
-
-
 
 \begin{thebibliography}{99}
 

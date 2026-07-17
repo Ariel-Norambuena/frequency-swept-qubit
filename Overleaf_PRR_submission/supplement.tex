@@ -34,7 +34,7 @@ Matem\'aticas, Universidad de Chile, 837.0415 Santiago, Chile}
 \affiliation{Departamento de F\'isica, Universidad T\'ecnica Federico Santa Mar\'ia,
 Casilla 110-V, Valpara\'iso, Chile}
 
-\date{July 15, 2026}
+\date{July 17, 2026}
 \maketitle
 
 \setcounter{equation}{0}
@@ -49,6 +49,133 @@ certifications, and microscopic reconstructions supporting the focused main
 article. References to equations and figures without an ``S'' prefix refer
 to the main article.
 
+
+
+\section{Exceptional-point critical layer}
+\label{sec:s_critical_layer}
+
+This section gives the perturbative details suppressed from the main text.
+For the linear representative \(\delta=a\tau\),
+Eq.~\eqref{M-eq:generalDetuningDynamics} reads
+\begin{equation}
+u''+\left[
+\frac{\ell(2-\ell)}4+\frac{a^2\tau^2}{4}
+-\frac{\ii a}{2}-\frac{\ii\ell a\tau}{2}
+\right]u=0.
+\label{eq:s_linear_gauge}
+\end{equation}
+Introduce
+\begin{equation}
+\epsilon=a^{1/4},\qquad
+2-\ell=\mu\epsilon^2,\qquad
+s=\epsilon\tau,\qquad
+U(s)=\epsilon u(\tau).
+\label{eq:s_critical_scaling}
+\end{equation}
+The transformed initial data are \(U(0)=\epsilon\) and
+\(U'(0)=\ell/2\). Equation~\eqref{eq:s_linear_gauge} becomes
+\begin{equation}
+U''+\left[
+\frac{\mu}{2}-\frac{\ii\ell\epsilon s}{2}
+-\epsilon^2\left(\frac{\mu^2}{4}+\frac{\ii}{2}\right)
++\frac{\epsilon^4s^2}{4}
+\right]U=0.
+\label{eq:s_scaled_critical}
+\end{equation}
+With
+\(\mu=\mu_0+\epsilon\mu_1+\epsilon^2\mu_2+\cdots\) and
+\(U=U_0+\epsilon U_1+\epsilon^2U_2+\cdots\), define
+\(\mathcal L=\dd^2/\dd s^2+k^2\), \(k^2=\mu_0/2\). The first three
+orders are
+\begin{align}
+\mathcal L U_0&=0,
+\label{eq:U0hierarchy}\\
+\mathcal L U_1&=\left(\ii s-\frac{\mu_1}{2}\right)U_0,
+\label{eq:U1hierarchy}\\
+\mathcal L U_2&=\left(\ii s-\frac{\mu_1}{2}\right)U_1
++\left(\frac{\mu_0^2}{4}+\frac{\ii}{2}
+-\frac{\mu_2}{2}\right)U_0.
+\label{eq:U2hierarchy}
+\end{align}
+The leading initial conditions give
+\begin{equation}
+U_0(s)=\frac{\sin(ks)}{k}.
+\label{eq:Uzero}
+\end{equation}
+The inverse of \(\mathcal L\) with zero initial data is the retarded Green
+function
+\begin{equation}
+\begin{aligned}
+G(s,r)&=\frac{\sin[k(s-r)]}{k}\Theta(s-r),\\
+(\mathcal L^{-1}F)(s)&=\int_0^sG(s,r)F(r)\dd r.
+\end{aligned}
+\label{eq:criticalGreenfunction}
+\end{equation}
+At the first zero \(s_0=\pi/k\), the chirp-induced imaginary lift is
+\begin{equation}
+w_0=\frac1{k^2}\int_0^{\pi/k}r\sin^2(kr)\dd r
+=\frac{\pi^2}{4k^4}.
+\label{eq:s_wzero}
+\end{equation}
+Writing \(s=s_0+\epsilon\xi\) gives
+\(\Ree q=-1+v/(v^2+w_0^2)+O(\epsilon)\), with \(v=\xi+1\).
+The maximum occurs at \(v=w_0\); double tangency therefore requires
+\(w_0=1/2\), yielding \(\mu_0=\sqrt2\pi\).
+
+To obtain the next coefficient, solve Eq.~\eqref{eq:U1hierarchy} as
+\begin{align}
+U_1&=\cos(ks)+\ii w(s)-\frac{\mu_1}{2}z(s),\nonumber\\
+z(s)&=-\frac{s\cos(ks)}{2k^2}
++\frac{\sin(ks)}{2k^3},
+\label{eq:zfunction}
+\end{align}
+where the cosine enforces \(U_1(0)=1\), and
+\begin{equation}
+\begin{aligned}
+w(s)&=\int_0^sG(s,r)rU_0(r)\dd r,\\
+z(s)&=\int_0^sG(s,r)U_0(r)\dd r.
+\end{aligned}
+\label{eq:wzGreen}
+\end{equation}
+Thus ``Green-function integral'' means the exact inverse of the
+constant-coefficient operator \(\mathcal L\), not an additional
+approximation. At \(s_0\),
+\begin{equation}
+d:=w'(s_0)=\frac{\pi}{4k^3},
+\qquad z(s_0)=\frac{\pi}{2k^3},
+\qquad z'(s_0)=0.
+\label{eq:criticalvalues}
+\end{equation}
+If \(v_2=\Imm U_2\), the only second-order value entering the tangency is
+\begin{equation}
+v_2(s_0)=\mu_1A_1,
+\qquad A_1=-\frac{3\pi^2}{16k^6}.
+\label{eq:A1}
+\end{equation}
+Indeed, Eq.~\eqref{eq:U2hierarchy} has the exact representation
+\begin{equation}
+U_2(s)=U_2^{\rm hom}(s)+\int_0^sG(s,r)\mathcal S_2(r)\dd r,
+\label{eq:U2Green}
+\end{equation}
+with \(\mathcal S_2\) equal to the right-hand side of
+Eq.~\eqref{eq:U2hierarchy}. Elementary sine integrals then reduce its
+imaginary part at \(s_0\) to Eq.~\eqref{eq:A1}; the homogeneous term enforces
+the second-order initial derivative and vanishes at \(s_0\). After absorbing
+the real displacement into the inner coordinate,
+\begin{equation}
+\max_\xi\Ree q=
+2\epsilon\left[d+\mu_1(d^2-A_1)\right]+O(\epsilon^2).
+\label{eq:qnext}
+\end{equation}
+The tangency condition gives
+\begin{equation}
+\mu_1=\frac{d}{A_1-d^2}
+=-\frac{k^3}{\pi}
+=-\frac{\sqrt\pi}{2^{3/4}},
+\label{eq:s_mu1}
+\end{equation}
+which proves the second fractional coefficient in
+Eq.~\eqref{M-eq:mainboundary} without fitting.
 
 
 \section{Control-profile robustness}
@@ -101,6 +228,109 @@ Eqs.~\eqref{eq:profiletheorem} and \eqref{eq:Km}; no fitted critical exponent
 is used.}
 \label{fig:profileuniversality}
 \end{figure*}
+
+
+\section{Uniform crossover and late-time sign control}
+\label{app:uniform}
+
+We now close the gap between the first lifted zero and the full slow
+protocol. Let \(\delta_a(\tau)=d f(a\tau/d)\), where
+\(f\in C^3([0,\infty))\), \(f(0)=0\), \(f'(0)=1\), \(f'\geq0\), the
+first three derivatives are bounded, and \(f\) approaches a positive
+constant. Assume \((2-\ell)/\epsilon^2\to\mu_0\), with
+\(\epsilon=a^{1/4}\).
+
+Fix \(L>L_0\), independent of \(\epsilon\), and define
+\begin{equation}
+\begin{aligned}
+S_\epsilon&=L\epsilon^{-1/2}\sqrt{\ln(1/\epsilon)},\\
+N_\epsilon&=\lfloor\epsilon^{-1/4}\rfloor,
+&k_\epsilon^2&=\frac{2-\ell}{2\epsilon^2}.
+\end{aligned}
+\label{eq:splitindices}
+\end{equation}
+Then \(k_\epsilon\to k_0\), with
+\(k_0^2=\mu_0/2=\pi/\sqrt2\). The constant \(L_0\) is chosen once so that
+the Liouville--Green damping accumulated by \(S_\epsilon\) dominates the
+algebraic matching errors; it does not grow as \(\epsilon\to0\). There are
+\(C,\epsilon_0>0\), independent of the oscillation-cell index, such that
+for \(0<\epsilon<\epsilon_0\),
+\begin{align}
+\sup_{\mathcal C_n}\Ree q
+&=-1+\frac1{n^2}+O(\epsilon^{1/2}),
+&&2\leq n\leq N_\epsilon,
+\label{eq:appendixearly}\\
+\sup_{\mathcal C_n}\Ree q
+&\leq-1+C\epsilon^{1/2}\ln^{3/2}(1/\epsilon),
+&&N_\epsilon\leq n\leq k_0S_\epsilon/\pi.
+\label{eq:appendixlate}
+\end{align}
+In particular, all later cells have a common negative limiting margin.
+
+On the crossover interval the scaled equation has coefficient
+\begin{equation}
+\begin{aligned}
+Q_\epsilon(s)&=k_\epsilon^2-\frac{\ii\ell\epsilon s}{2}
++R_\epsilon(s),\\
+|R_\epsilon|+(1+s)^{-1}|R_\epsilon'|
+&\leq C\epsilon^2(1+s^2).
+\end{aligned}
+\label{eq:Qremainder}
+\end{equation}
+For \(n\leq N_\epsilon\), Duhamel's formula about
+\(U_0=\sin(k_\epsilon s)/k_\epsilon\) resolves each lifted zero. Its
+imaginary displacement is \(O(\epsilon n^2)\), as is the controlled
+remainder after division by the local solution, which proves
+Eq.~\eqref{eq:appendixearly}.
+
+For \(n\geq N_\epsilon\), let \(p_a=\sqrt{Q_\epsilon}\), using the branch
+continued from \(p_a(0)>0\). The imaginary control term keeps
+\(Q_\epsilon\) away from zero on the real crossover, so no turning-point
+connection formula is needed. Substitution of
+\(p_a^{-1/2}\exp(\pm\ii\int p_a\dd s)\) leaves the standard
+Liouville--Green residual
+\begin{equation}
+\begin{aligned}
+\mathcal R_a
+&=\frac{3(p_a')^2}{4p_a^3}-\frac{p_a''}{2p_a^2},\\
+\int_0^{S_\epsilon}|\mathcal R_a(s)|\dd s
+&=O\!\left(\epsilon^{3/2}\sqrt{\ln(1/\epsilon)}\right).
+\end{aligned}
+\label{eq:LGresidual}
+\end{equation}
+Variation of constants around this basis is therefore uniform over the
+growing number of cells. The accumulated imaginary phase is already
+\(O(\epsilon^{1/2})\) at the late-cell entry, preventing a small-denominator
+loss and proving Eq.~\eqref{eq:appendixlate}. At the crossover exit,
+\begin{equation}
+\tau_m=\frac{S_\epsilon}{\epsilon},
+\qquad
+r_m:=|q(\tau_m)-q_s[\delta_a(\tau_m)]|\leq C\epsilon^2,
+\label{eq:entrybound}
+\end{equation}
+where \(q_s\) is the attracting frozen root of the Riccati equation.
+
+For the remaining tail, write \(e=q-q_s(\delta)\) and
+\(\Delta=\sqrt{(\ell+\ii\delta)^2-2\ell}=u+\ii v\), \(u>0\). The exact
+Riccati equation gives
+\(e'=-\Delta e-e^2-q_{s,\delta}\delta'\). Hence, for \(r=|e|\),
+\begin{equation}
+D^+r\leq-u r+r^2+|q_{s,\delta}\delta'|.
+\label{eq:tubeinequality}
+\end{equation}
+Let \(u_*\) and \(m_*\) be the minimum of \(u\) and \(-\Ree q_s\) on the
+tail, and let \(F_*\) be the maximum forcing. If \(u_*^2>4F_*\), set
+\(R_\pm=[u_*\pm\sqrt{u_*^2-4F_*}]/2\). The comparison principle gives
+the invariant-tube criterion
+\begin{equation}
+\max\{r_m,R_-\}<\min\{m_*,R_+\}
+\quad\Longrightarrow\quad
+\Ree q(\tau)<0
+\label{eq:tubecriterion}
+\end{equation}
+for all later times. Equation~\eqref{eq:entrybound} satisfies this criterion
+for sufficiently small \(a\), completing the global sign proof used in the
+main text.
 
 
 \section{Dependence on the finite sweep range}
@@ -636,7 +866,7 @@ information, not a Clausius entropy production.
 The Lorentzian boundary was computed in three independent ways: direct
 integration of Eq.~\eqref{M-eq:exactODE}, integration of
 Eq.~\eqref{M-eq:Riccati} with variational equations for the double-root
-conditions, and arbitrary-precision evaluation of Eq.~\eqref{M-eq:qWeber}.
+conditions, and arbitrary-precision evaluation of Eq.~\eqref{eq:qWeber}.
 The slow-sweep representation removes the dominant exponential before
 integration. The endpoint cusp was obtained from
 \(g=\partial_\ell g=0\), with derivatives evaluated from the exact
@@ -795,6 +1025,34 @@ z(v)=\ee^{-\ii\pi/4}\sqrt a
 \label{eq:s_weber_parameters}
 \end{align}
 where \(A\) and \(B\) are fixed by \(c(0)=1\) and \(c'(0)=0\).
+With
+\(z_0=-\ee^{-\ii\pi/4}\ii\ell/\sqrt a\) and
+\(\eta=\ee^{-\ii\pi/4}\sqrt a\), these coefficients are the unique
+solution of
+\begin{equation}
+\begin{pmatrix}
+D_\nu(z_0)&D_\nu(-z_0)\\
+\eta D_\nu'(z_0)&-\eta D_\nu'(-z_0)
+\end{pmatrix}
+\begin{pmatrix}A\\B\end{pmatrix}
+=\begin{pmatrix}1\\\ell/2\end{pmatrix}.
+\label{eq:ABsystem}
+\end{equation}
+Using \(D_\nu'(z)=zD_\nu(z)/2-D_{\nu+1}(z)\), the logarithmic derivative
+is evaluated without numerical differentiation as
+\begin{equation}
+q=-\frac\ell2-\frac{\ii a\tau}{2}
++\eta\frac{A D_\nu'(z)-B D_\nu'(-z)}
+{A D_\nu(z)+B D_\nu(-z)}.
+\label{eq:qWeber}
+\end{equation}
+For very small \(a\), direct special-function evaluation becomes
+ill-conditioned because \(\nu=\ii\ell/(2a)\) has large imaginary order. We
+therefore use Eq.~\eqref{M-eq:exactODE}, its exponentially desingularized
+form, and Eq.~\eqref{M-eq:Riccati} as independent numerical
+representations. At \(a=10^{-2}\), their values of \(q\) at the critical
+tangency agree within \(3.2\times10^{-12}\).
+
 Substitution gives the exact mode-resolved representation
 \begin{align}
 \beta_k(\tau)&=-\ii\widetilde g_k^*
