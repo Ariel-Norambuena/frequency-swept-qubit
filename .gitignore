@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.reproduce.*.log
+.gh-auth.*.log
+
+Overleaf_PRR_submission/*.aux
+Overleaf_PRR_submission/*.bbl
+Overleaf_PRR_submission/*.blg
+Overleaf_PRR_submission/*.log
+Overleaf_PRR_submission/*.out
+Overleaf_PRR_submission/*Notes.bib
+Overleaf_PRR_submission/main.pdf
+Overleaf_PRR_submission/supplement.pdf
+
+output/pdf/
